@@ -1,0 +1,5 @@
+{
+  // O VS Code não lê .editorconfig sozinho — sem a extensão, o arquivo é ignorado. É o único arquivo
+  // de .vscode/ versionado: o .gitignore ignora `.vscode/*` e abre exceção só para este.
+  "recommendations": ["editorconfig.editorconfig"]
+}
