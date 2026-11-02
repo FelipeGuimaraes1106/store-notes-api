@@ -26,3 +26,7 @@ npm run dev
 | `npm start` | Roda o build |
 | `npm run lint` | Typecheck de `src/` e `tests/` |
 | `npm test` | vitest, sem banco e sem rede |
+
+Regras de código: [`docs/REGRAS.md`](docs/REGRAS.md). Arquitetura:
+[`docs/ARQUITETURA.md`](docs/ARQUITETURA.md). Branches e commits:
+[`docs/BRANCHING_STRATEGY.md`](docs/BRANCHING_STRATEGY.md).
