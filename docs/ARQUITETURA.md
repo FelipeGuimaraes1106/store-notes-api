@@ -240,7 +240,7 @@ const app = await buildServer(buildContainer(buildRepositoriesStore()));
 
 6. **Testes** — `tests/helpers/build_test_app.ts` monta o mesmo container com os mocks, sem importar
    `main.ts` (que sobe o servidor no import); `tests/routes/things.test.ts` usa `app.inject()`.
-7. **Checklist antes do PR:**
+7. **Checklist antes do push:**
    - [ ] Nenhum import de Fastify, `pg` ou `fetch` em `models/`, `services/` ou `application/`
    - [ ] Nenhuma lógica de negócio em `controllers/rest/routes`
    - [ ] Endpoint novo tem schema Zod de response (aparece no `/docs`)

@@ -1,28 +1,14 @@
 # Branching Strategy & Commit Standards — store-notes-api
 
-GitHub Flow simplificado, o mesmo dos repositórios Smart City.
+Projeto individual: ninguém mais revisa, então não há branch de feature nem Pull Request. Todo
+commit vai direto na `main`.
 
-## 1. Branches
+## 1. Branch
 
-```
-feature/* → develop → main
-```
-
-| Branch | Para quê | Regras |
-|---|---|---|
-| `main` | Código estável, pronto para publicar | Nunca desenvolver nela; recebe só PR vindo da `develop` |
-| `develop` | Integração do trabalho | Criada a partir da `main`; recebe as `feature/*` via PR |
-| `feature/<short-description>` | Uma funcionalidade, melhoria ou ajuste | Sempre a partir da `develop`, nome curto em inglês; apagada depois do merge |
-
-Exemplos de nome: `feature/project-scaffold`, `feature/seed-repositories`, `feature/health-check`.
-
-```bash
-git checkout develop
-git pull origin develop
-git checkout -b feature/<short-description>
-```
-
-Uma feature por branch; não reutilize branch de feature. `develop` e `main` nunca são apagadas.
+- `main` é a única branch: é nela que se commita e é dela que se publica.
+- Antes de cada push: `npm run lint` e `npm test` verdes e o checklist de `docs/ARQUITETURA.md` §7.
+- Se o projeto ganhar mais gente ou um ambiente de homologação, volta o fluxo dos repositórios
+  Smart City (`feature/* → develop → main`, com PR).
 
 ## 2. Commits
 
@@ -62,11 +48,3 @@ feat(things): expose GET /v1/things
 ```
 
 Não recomendados: `update`, `fix bug`, `ajustes`, `coisas novas`, `final version`.
-
-## 3. Pull Requests
-
-- Título `<type>: <short description>` (ex.: `feat: list things`).
-- PR pequeno, uma feature por PR, branch atualizada com a `develop`.
-- `feature/* → develop`: **Squash and Merge**, e a branch é apagada em seguida.
-- `develop → main`: fechamento de ciclo ou release, com **Merge Commit**.
-- Antes de abrir: `npm run lint` e `npm test` verdes e o checklist de `docs/ARQUITETURA.md` §7.
