@@ -9,6 +9,7 @@ import {
   validatorCompiler,
 } from "fastify-type-provider-zod";
 import { env } from "../../config/env.js";
+import { healthRoutes } from "./routes/health.js";
 
 export async function buildServer() {
   const app = Fastify({
@@ -52,10 +53,16 @@ export async function buildServer() {
   await app.register(swagger, {
     openapi: {
       info: { title: "Caderno Lojas API", description: "API do Caderno Lojas (protótipo).", version: "0.1.0" },
+      tags: [{ name: "health", description: "Status da API" }],
     },
     transform: jsonSchemaTransform,
   });
   await app.register(swaggerUi, { routePrefix: "/docs" });
+
+  // /health fica fora do versionamento: ferramenta de infra (liveness/readiness) espera um caminho
+  // que não muda quando a API sobe de versão. As rotas de negócio entram sob o prefixo /v1,
+  // aplicado uma única vez aqui (docs/ARQUITETURA.md §7).
+  await app.register(healthRoutes);
 
   return app;
 }

@@ -16,7 +16,8 @@ npm install
 npm run dev
 ```
 
-O Swagger, gerado dos schemas Zod das rotas, fica em `http://localhost:3333/docs`.
+- `GET http://localhost:3333/health` — status da API
+- `http://localhost:3333/docs` — Swagger, gerado dos schemas Zod das rotas
 
 | Script | O que faz |
 | --- | --- |
