@@ -3,7 +3,7 @@
 API Node.js/TypeScript do **Caderno Lojas** (protótipo). O front é o
 [`store-notes-front`](https://github.com/FelipeGuimaraes1106/store-notes-front).
 
-Mesmo padrão da `smart-city-legacy`: Fastify + Zod (validação e OpenAPI) e Clean Architecture
+Fastify + Zod (validação e OpenAPI) e Clean Architecture
 organizada por conceito, com repositório mock para rodar sem banco.
 
 ## Rodar
